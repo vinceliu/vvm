@@ -4,7 +4,7 @@
 AC_PREREQ([2.69])
 AC_INIT([runtime], [0.1], [vinceliu@gmail.com])
 AM_INIT_AUTOMAKE
-AC_CONFIG_SRCDIR([src/main.cpp])
+AC_CONFIG_SRCDIR([src/runtime.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.

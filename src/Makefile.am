@@ -1,3 +1,2 @@
-SUBDIRS = src
 bin_PROGRAMS = runtime
-runtime_SOURCES = main.cpp
+runtime_SOURCES = runtime.cpp
