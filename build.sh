@@ -10,9 +10,6 @@ function _build_runtime {
         mkdir -pv build/runtime
         cd build/runtime && ../../configure
         cd -
-        if [[ -d autom4te.cache ]]; then
-            rm -rf aclocal.m4 autom4te.cache Makefile.in src/Makefile.in
-        fi
     fi
     cd build/runtime && make
 }
