@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-#include "jemalloc/jemallocruntime.h"
+#include "jemalloc/jemalloc.h"
 #include "runtime.h"
 
 int main(UNUSED int argc, UNUSED char **argv) {
-    printf("Hello\n");
+    printf("Hello %p\n", je_malloc(1000));
     return 0;
 }

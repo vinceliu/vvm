@@ -8,14 +8,13 @@ function _build_runtime {
     if [[ ! -d build/runtime ]]; then
         autoreconf -i
         mkdir -pv build/runtime
-        cd build/runtime && ../../configure && make
+        cd build/runtime && ../../configure
         cd -
         if [[ -d autom4te.cache ]]; then
-            rm -rf aclocal.m4 autom4te.cache compile configure depcomp install-sh missing Makefile.in src/Makefile.in
+            rm -rf aclocal.m4 autom4te.cache Makefile.in src/Makefile.in
         fi
-    else
-        cd build/runtime && ../../configure && make
     fi
+    cd build/runtime && make
 }
 
 function _build_jemalloc {
@@ -26,9 +25,7 @@ function _build_jemalloc {
     mkdir -pv build/jemalloc
     cd build/jemalloc
     if [[ ! -f config.status ]]; then
-        ../../../jemalloc/configure --with-jemalloc-prefix="runtime" --without-export \
-            --with-private-namespace="runtime_" --with-install-suffix="runtime" --enable-debug \
-            --enable-prof
+        ../../../jemalloc/configure --without-export --enable-debug --enable-prof
     fi
     make build_lib_static
     cd -
