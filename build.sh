@@ -8,7 +8,7 @@ function _build_runtime {
     if [[ ! -d build/runtime ]]; then
         autoreconf -i
         mkdir -pv build/runtime
-        cd build/runtime && ../../configure --enable-silent-rules
+        cd build/runtime && ../../configure
         cd -
     fi
     cd build/runtime && make

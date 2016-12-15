@@ -4,6 +4,9 @@
 AC_PREREQ([2.69])
 AC_INIT([runtime], [0.1], [vinceliu@gmail.com])
 AM_INIT_AUTOMAKE
+LT_PREREQ([2.2])
+LT_INIT([dlopen shared pic-only])
+AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SRCDIR([src/runtime.cpp])
 AC_CONFIG_HEADERS([config.h])
 
@@ -11,7 +14,6 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_MAKE_SET
-AC_PROG_RANLIB
 
 # Checks for libraries.
 
