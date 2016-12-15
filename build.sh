@@ -28,8 +28,21 @@ function _build_jemalloc {
     cd -
 }
 
+function _build_googletest {
+    if [[ ! -d ../googletest ]]; then
+        echo "Error: googletest repo is not found!"
+        exit 1
+    fi
+    mkdir -pv build/googletest
+    cd build/googletest
+    cmake -DCMAKE_INSTALL_PREFIX=$PWD -Dgtest_build_samples=ON ../../../googletest/googletest
+    make install
+    cd -
+}
+
 function _build_dependencies {
     _build_jemalloc
+    _build_googletest
 }
 
 function _build {
