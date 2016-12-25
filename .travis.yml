@@ -6,7 +6,7 @@ os:
 - linux
 - osx
 before_install:
-- bash shellcheck.sh
+- sudo bash shellcheck.sh
 before_script:
 - autoreconf -i
 notifications:
