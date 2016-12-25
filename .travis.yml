@@ -2,6 +2,9 @@ language: cpp
 compiler:
 - clang
 - gcc
+os:
+- linux
+- osx
 before_script:
 - autoreconf -i
 notifications:
