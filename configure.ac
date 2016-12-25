@@ -6,7 +6,7 @@ AC_INIT([runtime], [0.1], [vinceliu@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-extra-portability foreign])
 LT_PREREQ([2.2])
 LT_INIT([dlopen shared pic-only])
-AC_CONFIG_MACRO_DIRS([m4])
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/runtime.cpp])
 AC_CONFIG_HEADERS([config.h])
 
