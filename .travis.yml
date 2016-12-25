@@ -1,5 +1,6 @@
 language: cpp
 notifications:
-    email: vinceliu+travisci@gmail.com
-        on_success: change
-        on_failure: always
+  email: vinceliu+travisci@gmail.com
+  webhooks:
+    on_success: change
+    on_failure: always
