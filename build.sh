@@ -37,7 +37,7 @@ function _build_googletest {
         mkdir -pv build/googletest
         (
             cd build/googletest
-            cmake -DCMAKE_INSTALL_PREFIX=$PWD -Dgtest_build_samples=ON ../../../googletest/googletest
+            cmake -DCMAKE_INSTALL_PREFIX="$PWD" -Dgtest_build_samples=ON ../../../googletest/googletest
             make install
         )
     fi
