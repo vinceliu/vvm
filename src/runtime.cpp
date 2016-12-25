@@ -1,12 +1,14 @@
 #include <stdio.h>
 
 #include "prims/jvm.h"
-#include "jemalloc/jemalloc.h"
+//#include "jemalloc/jemalloc.h"
 
 #include "runtime.h"
 
+extern "C" {
+
 int main(UNUSED int argc, UNUSED char **argv) {
-    printf("Hello %p\n", je_malloc(1000));
+//    printf("Hello %p\n", je_malloc(1000));
     return 0;
 }
 
@@ -1228,3 +1230,5 @@ JVM_GetEnclosingMethodInfo(UNUSED JNIEnv *env, UNUSED jclass ofClass) {
 JNIEXPORT void JNICALL
 JVM_GetVersionInfo(UNUSED JNIEnv *env, UNUSED jvm_version_info* info, UNUSED size_t info_size) {
 }
+
+} // extern "C"
