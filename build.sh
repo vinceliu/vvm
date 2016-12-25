@@ -35,10 +35,11 @@ function _build_googletest {
     fi
     if [[ ! -d build/googletest ]]; then
         mkdir -pv build/googletest
-        cd build/googletest
-        cmake -DCMAKE_INSTALL_PREFIX=$PWD -Dgtest_build_samples=ON ../../../googletest/googletest
-        make install
-        cd -
+        (
+            cd build/googletest
+            cmake -DCMAKE_INSTALL_PREFIX=$PWD -Dgtest_build_samples=ON ../../../googletest/googletest
+            make install
+        )
     fi
 }
 
