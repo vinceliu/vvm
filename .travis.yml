@@ -1,1 +1,5 @@
 language: cpp
+notifications:
+    email: vinceliu+travisci@gmail.com
+        on_success: change
+        on_failure: always
