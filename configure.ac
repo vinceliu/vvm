@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.68])
 AC_INIT([runtime], [0.1], [vinceliu@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror -Wno-extra-portability foreign])
 LT_PREREQ([2.2])
