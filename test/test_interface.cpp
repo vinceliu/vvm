@@ -203,9 +203,6 @@ TEST(InterfaceTest, AllSignatures) {
 
     for(int i = 0; i < 176; i++) {
         void *sym = dlsym(handle, symbols[i]);
-        if (sym == NULL) {
-            printf("%d'''%s'''\n", i, symbols[i]);
-        }
         EXPECT_TRUE(sym != NULL);
     }
 
