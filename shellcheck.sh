@@ -6,5 +6,5 @@ if [[ $TRAVIS_OS_NAME == "linux" ]]; then
     apt-get -qq update
     apt-get -t trusty-backports install shellcheck
 
-    shellcheck shellcheck.sh build.sh
+    shellcheck shellcheck.sh build.sh build_googletest.sh
 fi

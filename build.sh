@@ -29,18 +29,7 @@ function _build_jemalloc {
 }
 
 function _build_googletest {
-    if [[ ! -d ../googletest ]]; then
-        echo "Error: googletest repo is not found!"
-        exit 1
-    fi
-    if [[ ! -d build/googletest ]]; then
-        mkdir -pv build/googletest
-        (
-            cd build/googletest
-            cmake -DCMAKE_INSTALL_PREFIX="$PWD" -Dgtest_build_samples=ON ../../../googletest/googletest
-            make install
-        )
-    fi
+    bash ./build_googletest.sh --keep --path="${PWD}/build/googletest"
 }
 
 # This really isn't building anything from CVMI, but simply checking that we can use CVMI

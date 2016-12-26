@@ -7,6 +7,8 @@ os:
 - osx
 before_install:
 - sudo bash shellcheck.sh
+install:
+- bash build_googletest.sh
 before_script:
 - autoreconf -i
 notifications:
