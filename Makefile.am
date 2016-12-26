@@ -6,9 +6,10 @@ SUBDIRS = src
 test: test_interface
 
 test_interface: test/test_interface.cpp
-	g++ -o test_interface -I/tmp/googletest/include -lpthread -ldl $< \
+	g++ -o test_interface -I/tmp/googletest/include $< \
 		/tmp/googletest/libgtest.a \
-		/tmp/googletest/libgtest_main.a
+		/tmp/googletest/libgtest_main.a \
+		-lpthread -ldl
 		./test_interface
 
 .PHONY: test
