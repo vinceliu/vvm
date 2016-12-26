@@ -233,7 +233,9 @@ JVM_ResumeThread(UNUSED JNIEnv *env, UNUSED jobject thread) {
 }
 
 JNIEXPORT void JNICALL
-JVM_SetThreadPriority(UNUSED JNIEnv *env, UNUSED jobject thread, UNUSED jint prio);
+JVM_SetThreadPriority(UNUSED JNIEnv *env, UNUSED jobject thread,
+        UNUSED jint prio) {
+}
 
 JNIEXPORT void JNICALL
 JVM_Yield(UNUSED JNIEnv *env, UNUSED jclass threadClass) {
@@ -318,7 +320,9 @@ JVM_ClassLoaderDepth(UNUSED JNIEnv *env) {
  * java.lang.Package
  */
 JNIEXPORT jstring JNICALL
-JVM_GetSystemPackage(UNUSED JNIEnv *env, UNUSED jstring name);
+JVM_GetSystemPackage(UNUSED JNIEnv *env, UNUSED jstring name) {
+    return NULL;
+}
 
 JNIEXPORT jobjectArray JNICALL
 JVM_GetSystemPackages(UNUSED JNIEnv *env) {
@@ -364,7 +368,11 @@ JVM_GetArrayElement(UNUSED JNIEnv *env, UNUSED jobject arr, UNUSED jint index) {
 }
 
 JNIEXPORT jvalue JNICALL
-JVM_GetPrimitiveArrayElement(UNUSED JNIEnv *env, UNUSED jobject arr, UNUSED jint index, UNUSED jint wCode);
+JVM_GetPrimitiveArrayElement(UNUSED JNIEnv *env, UNUSED jobject arr,
+        UNUSED jint index, UNUSED jint wCode) {
+    union jvalue jv;
+    return jv;
+}
 
 JNIEXPORT void JNICALL
 JVM_SetArrayElement(UNUSED JNIEnv *env, UNUSED jobject arr, UNUSED jint index, UNUSED jobject val) {
@@ -957,7 +965,10 @@ JVM_IsConstructorIx(UNUSED JNIEnv *env, UNUSED jclass cb, UNUSED int index) {
  * The method is identified by method_index.
  */
 JNIEXPORT jboolean JNICALL
-JVM_IsVMGeneratedMethodIx(UNUSED JNIEnv *env, UNUSED jclass cb, UNUSED int index);
+JVM_IsVMGeneratedMethodIx(UNUSED JNIEnv *env, UNUSED jclass cb,
+        UNUSED int index) {
+    return JNI_FALSE;
+}
 
 /*
  * Returns the name of a given method in UTF format.
