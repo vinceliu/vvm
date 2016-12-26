@@ -21,7 +21,6 @@ runtime_SOURCES = runtime.cpp
 runtime_CPPFLAGS = -I$(top_srcdir)/build/jemalloc/include \
                    -I$(top_srcdir)/include \
                    ${AM_CPPFLAGS}
-#                  -I$(top_srcdir)/build/cvmi/include $(AM_CPPFLAGS)
 runtime_LDFLAGS = $(_asan_debug_flags) $(_asan_debug_ldflags)
 #runtime_LDADD = $(top_srcdir)/build/jemalloc/lib/libjemalloc.a
 
@@ -30,7 +29,6 @@ libjvm_la_SOURCES = runtime.cpp
 libjvm_la_CPPFLAGS = -fPIC -I$(top_srcdir)/build/jemalloc/include \
                      -I$(top_srcdir)/include \
                      ${AM_CPPFLAGS}
-#-I$(top_srcdir)/build/cvmi/include $(AM_CPPFLAGS)
 libjvm_la_LDFLAGS = -fPIC -avoid-version $(_asan_debug_flags) \
                     $(_asan_debug_ldflags)
 #libjvm_la_LIBADD = $(top_srcdir)/build/jemalloc/lib/libjemalloc_pic.a
