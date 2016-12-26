@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "jni.h"
 #include "prims/jvm.h"
 //#include "jemalloc/jemalloc.h"
 
@@ -9,6 +10,20 @@ extern "C" {
 
 int main(UNUSED int argc, UNUSED char **argv) {
 //    printf("Hello %p\n", je_malloc(1000));
+    return 0;
+}
+
+JNIEXPORT jint JNICALL JNI_CreateJavaVM(UNUSED JavaVM **vm,
+        UNUSED JNIEnv **env, UNUSED void *vm_args) {
+    return 0;
+}
+
+JNIEXPORT jint JNICALL JNI_GetDefaultJavaVMInitArgs(UNUSED void *vm_args) {
+    return 0;
+}
+
+JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(UNUSED JavaVM **vmBuf,
+        UNUSED jsize bufLen, UNUSED jsize *nVMs) {
     return 0;
 }
 

@@ -1766,14 +1766,13 @@ struct JavaVM_External {
 extern "C" {
 #endif
 
-JNIEXPORT jint JNICALL JNI_GetDefaultJavaVMInitArgs(void * vm_args);
+JNIEXPORT jint JNICALL JNI_GetDefaultJavaVMInitArgs(void *vm_args);
 
-JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(JavaVM ** vmBuf,
-                                                jsize bufLen,
-                                                jsize * nVMs);
+JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(JavaVM **vmBuf,
+        jsize bufLen, jsize *nVMs);
 
-JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM ** p_vm, JNIEnv ** p_env,
-                                           void * vm_args);
+JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM **vm, JNIEnv **env,
+        void *vm_args);
 
 #ifdef __cplusplus
 }
