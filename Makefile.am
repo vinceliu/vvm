@@ -1,7 +1,14 @@
 SUBDIRS = src
 
-# Alias `test` to `make check` target. Why does Travis CI look for this target?
-test: check
-	@echo "NOP Test target complete"
+# Only called by CI. Compiles and runs unit tests. Possibly can do better
+# with fancy makefiles into '/test' and fancy bells and whistles, but IDK
+# enough to do that
+test: test_interface
+
+test_interface: test/test_interface.cpp
+	g++ -o test_interface -I/tmp/googletest/include $< \
+		/tmp/googletest/libgtest.a \
+		/tmp/googletest/libgtest_main.a
+		./test_interface
 
 .PHONY: test
