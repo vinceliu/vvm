@@ -10,6 +10,6 @@ test_interface: test/test_interface.cpp
 		/tmp/googletest/libgtest.a \
 		/tmp/googletest/libgtest_main.a \
 		-lpthread -ldl
-		./test_interface
+	./test_interface
 
 .PHONY: test
