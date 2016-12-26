@@ -1,4 +1,4 @@
-/* 
+/*
  *  Licensed to the Apache Software Foundation (ASF) under one or more
  *  contributor license agreements.  See the NOTICE file distributed with
  *  this work for additional information regarding copyright ownership.
@@ -14,37 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-/**
- * @file
- * This file describes the JNI interface as per the JNI
- * specification 1.5 available from Sun
- *
- * See <a
- * href="http://java.sun.com/j2se/1.5.0/docs/guide/jni/spec/jniTOC.html">specification</a>
- * for details.
- */
+#pragma once
 
-#ifndef _JNI_H_
-#define _JNI_H_
-
-#include <stdio.h>
 #include <stdarg.h>
+
 #include "jni_types.h"
 
-/*
- * Supported JNI versions
- */
-/**
- * Constant which specifies JNI interface version 1.1
- */
 #define JNI_VERSION_1_1 0x00010001
-/**
- * Constant which specifies JNI interface version 1.2
- */
 #define JNI_VERSION_1_2 0x00010002
-/**
- * Constant which specifies JNI interface version 1.4
- */
 #define JNI_VERSION_1_4 0x00010004
 
 /**
@@ -63,7 +40,7 @@ struct JNINativeInterface_ {
     jint (JNICALL *GetVersion)(JNIEnv *env);
 
     jclass (JNICALL *DefineClass)
-      (JNIEnv *env, const char *name, jobject loader, const jbyte *buf, 
+      (JNIEnv *env, const char *name, jobject loader, const jbyte *buf,
        jsize len);
     jclass (JNICALL *FindClass)
       (JNIEnv *env, const char *name);
@@ -204,10 +181,10 @@ struct JNINativeInterface_ {
     jobject (JNICALL *CallNonvirtualObjectMethod)
       (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID, ...);
     jobject (JNICALL *CallNonvirtualObjectMethodV)
-      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID, 
+      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        va_list args);
     jobject (JNICALL *CallNonvirtualObjectMethodA)
-      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID, 
+      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        jvalue * args);
 
     jboolean (JNICALL *CallNonvirtualBooleanMethod)
@@ -225,7 +202,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        va_list args);
     jbyte (JNICALL *CallNonvirtualByteMethodA)
-      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID, 
+      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        jvalue *args);
 
     jchar (JNICALL *CallNonvirtualCharMethod)
@@ -261,7 +238,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        va_list args);
     jlong (JNICALL *CallNonvirtualLongMethodA)
-      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID, 
+      (JNIEnv *env, jobject obj, jclass clazz, jmethodID methodID,
        jvalue *args);
 
     jfloat (JNICALL *CallNonvirtualFloatMethod)
@@ -395,7 +372,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jclass clazz, jmethodID methodID, ...);
     jdouble (JNICALL *CallStaticDoubleMethodV)
       (JNIEnv *env, jclass clazz, jmethodID methodID, va_list args);
-    jdouble (JNICALL *CallStaticDoubleMethodA)       
+    jdouble (JNICALL *CallStaticDoubleMethodA)
       (JNIEnv *env, jclass clazz, jmethodID methodID, jvalue *args);
 
     void (JNICALL *CallStaticVoidMethod)
@@ -453,7 +430,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jstring str, jboolean *isCopy);
     void (JNICALL *ReleaseStringChars)
       (JNIEnv *env, jstring str, const jchar *chars);
-  
+
     jstring (JNICALL *NewStringUTF)
       (JNIEnv *env, const char *utf);
     jsize (JNICALL *GetStringUTFLength)
@@ -462,7 +439,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jstring str, jboolean *isCopy);
     void (JNICALL *ReleaseStringUTFChars)
       (JNIEnv *env, jstring str, const char* chars);
-  
+
 
     jsize (JNICALL *GetArrayLength)
       (JNIEnv *env, jarray array);
@@ -560,7 +537,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jdoubleArray array, jsize start, jsize len, jdouble *buf);
 
     jint (JNICALL *RegisterNatives)
-      (JNIEnv *env, jclass clazz, const JNINativeMethod *methods, 
+      (JNIEnv *env, jclass clazz, const JNINativeMethod *methods,
        jint nMethods);
     jint (JNICALL *UnregisterNatives)
       (JNIEnv *env, jclass clazz);
@@ -569,7 +546,7 @@ struct JNINativeInterface_ {
       (JNIEnv *env, jobject obj);
     jint (JNICALL *MonitorExit)
       (JNIEnv *env, jobject obj);
- 
+
     jint (JNICALL *GetJavaVM)
       (JNIEnv *env, JavaVM **vm);
 
@@ -1724,7 +1701,7 @@ typedef struct JavaVMInitArgs {
  * for details.
  */
 typedef struct JavaVMAttachArgs {
-    jint version;  
+    jint version;
     char *name;
     jobject group;
 } JavaVMAttachArgs;
@@ -1789,50 +1766,15 @@ struct JavaVM_External {
 extern "C" {
 #endif
 
-/**
- * @def _JNI_EXPORT_
- * Function attribute used when building VM from sources
- */
-#ifdef BUILDING_VM
-#define _JNI_EXPORT_
-#else
-#define _JNI_EXPORT_ JNIIMPORT
-#endif
+JNIEXPORT jint JNICALL JNI_GetDefaultJavaVMInitArgs(void * vm_args);
 
-/**
- * Function to get the default VM arguments
- *
- * See <a
- * href="http://java.sun.com/j2se/1.5.0/docs/guide/jni/spec/invocation.html#wp16064">specification</a>
- * for details.
- */
-_JNI_EXPORT_ jint JNICALL JNI_GetDefaultJavaVMInitArgs(void * vm_args);
-
-/**
- * Function to get an array of already created Java VMs in the current
- * process
- *
- * See <a
- * href="http://java.sun.com/j2se/1.5.0/docs/guide/jni/spec/invocation.html#wp633">specification</a>
- * for details.
- */
-_JNI_EXPORT_ jint JNICALL JNI_GetCreatedJavaVMs(JavaVM ** vmBuf,
+JNIEXPORT jint JNICALL JNI_GetCreatedJavaVMs(JavaVM ** vmBuf,
                                                 jsize bufLen,
                                                 jsize * nVMs);
 
-/**
- * Creates Java VM in the current process
- *
- * See <a
- * href="http://java.sun.com/j2se/1.5.0/docs/guide/jni/spec/invocation.html#wp16334">specification</a>
- * for details.
- */
-_JNI_EXPORT_ jint JNICALL JNI_CreateJavaVM(JavaVM ** p_vm, JNIEnv ** p_env,
+JNIEXPORT jint JNICALL JNI_CreateJavaVM(JavaVM ** p_vm, JNIEnv ** p_env,
                                            void * vm_args);
 
 #ifdef __cplusplus
 }
 #endif
-
-
-#endif /* _JNI_H_ */
